@@ -21,6 +21,11 @@ func New() *SinglyLinkedList {
 	}
 }
 
+/*
+	Insert function creates a node and adds if the head does not exist
+	or traverses to the end of the linked list until the last node
+	and attaches the new node
+*/
 func (sll *SinglyLinkedList) Insert(data int32) {
 	newNode := &node{
 		data: data,
@@ -47,6 +52,7 @@ func (sll *SinglyLinkedList) Print() {
 	println("NULL")
 }
 
+// Length returns the length of the linked list
 func (sll *SinglyLinkedList) Length() int32 {
 	var count int32 = 0
 	temp := sll.head
