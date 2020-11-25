@@ -4,10 +4,10 @@ import "fmt"
 
 // BaseImplementer creates an interface for all the base methods a linked list should have
 type BaseImplementer interface {
-	Insert(data interface{})
+	Insert(data int32)
 	Print()
 	DeleteAtGivenPosition(position int32)
-	Length()
+	Length() int32
 	Reverse()
 }
 
