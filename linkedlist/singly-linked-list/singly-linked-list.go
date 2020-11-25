@@ -63,6 +63,13 @@ func (sll *SinglyLinkedList) Length() int32 {
 	return count
 }
 
+/*
+	defer is a keyword which halts the execution until the rest of the body gets executed.
+	In the below function, if the position to be deleted, is more than the
+	length of the linked list, then we panic ( quit abruptly causing the program to exit)
+	Sometimes, we need to handle and recover from panics and shutdown gracefully.
+	The defer statement catches the panic and recovers from it by printing the error.
+*/
 func (sll *SinglyLinkedList) DeleteAtGivenPosition(position int32) {
 	defer func() {
 		if err := recover(); err != nil {
