@@ -1,24 +1,39 @@
 package main
 
 import (
+	"data-structures/linkedlist"
+	doublylinkedlist "data-structures/linkedlist/doubly-linked-list"
 	singlylinkedlist "data-structures/linkedlist/singly-linked-list"
+	"fmt"
 )
+
+func performInterfaceMethods(listType string, ll linkedlist.BaseImplementer) {
+	fmt.Printf("--- %s ---", listType)
+	println()
+	ll.Insert(10)
+	ll.Print()
+	ll.Insert(20)
+	ll.Print()
+	ll.Insert(30)
+	ll.Print()
+	ll.Insert(40)
+	ll.Print()
+	println("Length of singly linked list: ", ll.Length())
+	println("Deleteing node at position 4")
+	ll.DeleteAtGivenPosition(4)
+	ll.Print()
+	println("Reversing linked list")
+	ll.Reverse()
+	ll.Print()
+	println("Deleteing node at position 5 which is not existent")
+	ll.DeleteAtGivenPosition(5)
+	ll.Print()
+	println()
+}
 
 func main() {
 	sll := singlylinkedlist.New()
-	sll.Insert(10)
-	sll.Print()
-	sll.Insert(20)
-	sll.Print()
-	sll.Insert(30)
-	sll.Print()
-	sll.DeleteAtGivenPosition(3)
-	sll.Print()
-	println("Length of singly linked list: ", sll.Length())
-	println("Deleteing node at position 3 which is not existent")
-	sll.DeleteAtGivenPosition(3)
-	println("Reversing linked list")
-	sll.Reverse()
-	sll.Print()
-	println("Program exited successfully")
+	performInterfaceMethods("Singly Linked List", sll)
+	dll := doublylinkedlist.New()
+	performInterfaceMethods("Doubly Linked List", dll)
 }
