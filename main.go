@@ -2,6 +2,7 @@ package main
 
 import (
 	"data-structures/linkedlist"
+	circularlinkedlist "data-structures/linkedlist/circular-linked-list"
 	doublylinkedlist "data-structures/linkedlist/doubly-linked-list"
 	singlylinkedlist "data-structures/linkedlist/singly-linked-list"
 	"fmt"
@@ -29,6 +30,7 @@ func performInterfaceMethods(listType string, ll linkedlist.BaseImplementer) {
 	ll.DeleteAtGivenPosition(5)
 	ll.Print()
 	println()
+	println()
 }
 
 func main() {
@@ -36,4 +38,6 @@ func main() {
 	performInterfaceMethods("Singly Linked List", sll)
 	dll := doublylinkedlist.New()
 	performInterfaceMethods("Doubly Linked List", dll)
+	cll := circularlinkedlist.New()
+	performInterfaceMethods("Circular Linked List", cll)
 }

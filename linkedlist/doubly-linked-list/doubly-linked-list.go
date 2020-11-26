@@ -48,10 +48,14 @@ func (dll *DoublyLinkedList) Insert(data int32) {
 //Print prints the linked list
 func (dll *DoublyLinkedList) Print() {
 	temp := dll.head
+	if temp == nil {
+		return
+	}
 	for temp != nil {
 		fmt.Printf("<- %d -> ", temp.data)
 		temp = temp.next
 	}
+	println()
 }
 
 // Length returns the length of the linked list
