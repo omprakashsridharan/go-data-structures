@@ -5,10 +5,11 @@ import (
 	circularlinkedlist "data-structures/linkedlist/circular-linked-list"
 	doublylinkedlist "data-structures/linkedlist/doubly-linked-list"
 	singlylinkedlist "data-structures/linkedlist/singly-linked-list"
+	"data-structures/stack"
 	"fmt"
 )
 
-func performInterfaceMethods(listType string, ll linkedlist.BaseImplementer) {
+func performLinkedListInterfaceMethods(listType string, ll linkedlist.BaseImplementer) {
 	fmt.Printf("--- %s ---", listType)
 	println()
 	ll.Insert(10)
@@ -33,11 +34,42 @@ func performInterfaceMethods(listType string, ll linkedlist.BaseImplementer) {
 	println()
 }
 
+func printStackMethods(s *stack.Stack) {
+	println("Height of stack: ", s.Height())
+	println("Return -1 on peek if nothing is there in stack")
+	println("Peeking now. Result: ", s.Peek())
+	println("Pushing 10 to the stack")
+	s.Push(10)
+	println("Peeking now. Result: ", s.Peek())
+	println("Height of stack: ", s.Height())
+	println("Pushing 20 to the stack")
+	s.Push(20)
+	println("Peeking now. Result: ", s.Peek())
+	s.Print()
+	println("Popping top of the stack")
+	if poppedItem, ok := s.Pop(); ok {
+		println("Popped Item: ", poppedItem)
+	}
+	println("Popping top of the stack")
+	if poppedItem, ok := s.Pop(); ok {
+		println("Popped Item: ", poppedItem)
+	}
+	println("Popping top of the stack")
+	if poppedItem, ok := s.Pop(); ok {
+		println("Popped Item: ", poppedItem)
+	} else {
+		println("Oops! Stack is empty, Nothing to pop")
+	}
+	println()
+}
+
 func main() {
 	sll := singlylinkedlist.New()
-	performInterfaceMethods("Singly Linked List", sll)
+	performLinkedListInterfaceMethods("Singly Linked List", sll)
 	dll := doublylinkedlist.New()
-	performInterfaceMethods("Doubly Linked List", dll)
+	performLinkedListInterfaceMethods("Doubly Linked List", dll)
 	cll := circularlinkedlist.New()
-	performInterfaceMethods("Circular Linked List", cll)
+	performLinkedListInterfaceMethods("Circular Linked List", cll)
+	s := stack.New()
+	printStackMethods(s)
 }
